@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+class Y; // declaration   
+class X{
+    int data;
+    friend void add(X, Y);
+    public:
+        void setValue(int value){
+            data = value;
+        }
+};
+
+class Y{
+    int data;
+    friend class X;
+    friend void add(X, Y);
+    public:
+        void setValue(int value){
+            data = value;
+        }
+};
+void add(X o1, Y o2){
+    cout<<o1.data+o2.data<<endl;
+}
+int main(){
+
+}

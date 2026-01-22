@@ -31,3 +31,4 @@ int main(){
     setVal(&marks);
     show(&marks);
 }
+
