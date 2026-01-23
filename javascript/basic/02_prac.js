@@ -16,3 +16,4 @@ switch(age){
         console.log("bad")
         break;
 }
+
