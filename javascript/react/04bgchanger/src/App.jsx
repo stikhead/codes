@@ -12,7 +12,7 @@ function App() {
   return (
     <>
      <div
-      className="h-screen flex gap-4 items-center justify-center"
+      className="h-screen flex gap-4 items-center duration-200 justify-center"
       style={{ backgroundColor: color }}
     >
         <Button color='black' c={changeColor}></Button>
