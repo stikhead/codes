@@ -31,3 +31,5 @@ int main(){
         st.pop();
     }
 }
+
+unordered_map<pair<vector<pair<set<int>, int>>, pair<int, vector<vector<int>>>>, int> j;
