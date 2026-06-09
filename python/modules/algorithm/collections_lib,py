@@ -1,0 +1,22 @@
+#1 counter  -> freq map in o(N)
+from collections import Counter
+arr = [1, 2, 2, 3, 1, 2]
+freq = Counter(arr)
+print(freq[2]) # 3
+print(freq.most_common(1)) # (2,3)
+
+
+from collections import deque
+d = deque([4, 5, 4])
+d.append(4) # push to back o(1)
+d.appendleft(2) # push to front o(1)
+d.popleft() # pop from left o(1)
+
+from collections import defaultdict
+graph = defaultdict(list) # initializes empty list for missing keys
+graph["node A"].append(["Node B"])
+graph["node B"].append(["Node A65                                                                                                                                                          "])
+
+for nodeA, connected_nodes in graph.items():
+    for nodeB in connected_nodes:
+        print(nodeB)
