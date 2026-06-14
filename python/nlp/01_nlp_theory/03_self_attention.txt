@@ -1,0 +1,18 @@
+3. Self Attention
+
+word embeddings are static, the dictionary will always assign the exact same 768 floats
+to word "bank". but what if the sentence is "the bank of the river" vs "the bank was robbed"?
+if the floats are the same, the ai is blind to the Context
+
+the Attention algorithm is a solution to this. When we pass a sentence into bert,
+the ai doesnt read left to right. it loads all the words into a massive matrix at once. 
+it then forces every single word to mathematically "look" at every other word in the sentence
+
+when the word "bank" looks around and sees "river", 
+the attention mechanism performs a matrix multiplication that pulls the bank's floats slightly closer
+to the coordinates for "water".
+if it sees "robbed", it pulls the floats closer to "money". 
+The AI dynamically updates the meaning of every word on the fly based on the surrounding data.
+this is the exact breakthrough that makes LLMs possible.
+
+https://chatgpt.com/c/6a2e6bdb-9f58-83e8-9d84-395b4a958612

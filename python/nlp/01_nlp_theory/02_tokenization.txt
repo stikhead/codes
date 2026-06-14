@@ -1,0 +1,35 @@
+2. Tokenization (the memory manager)
+
+if we try to store a 768 float array for every single word, prefix and suffix arcoss
+100 different human languages, our dictionary becomes billions of entries long. 
+Loading that into a gpu would instatly trigger an out of memory crash.
+
+To avoid this, we use compression. i.e. instead of storing the word "unbeliveable", 
+the tokenizer dictionary only stores "Un", "believe" and "able".
+
+by aggressively chopping unknown words into their root statistical syllables, 
+Hugging face can compress the entire vocabulary of 100 human languages down to
+just ~110,000 subwords. 
+it is a highly optimized lookup table that ensures our vram footprint stays incredibly small,
+while still being able to reconstruct literally any word in existence
+
+
+Tokenization is more about scalability and generalization than preventing an immediate GPU crash
+A tokenizer might produce:
+
+    unbelievable
+    → unbel + iev + able
+
+    or
+
+    unbelievable
+    → unb + eliev + able
+
+depending on what appeared frequently during training. The tokenizer doesn't understand grammar.
+It only learns which character sequences are useful for compression and prediction.
+Popular algorithms include:
+* Byte Pair Encoding (BPE)
+* WordPiece
+* SentencePiece
+
+https://chatgpt.com/c/6a2e6bdb-9f58-83e8-9d84-395b4a958612

@@ -1,0 +1,16 @@
+4. transfer learning
+
+to figure out exactly what those 768 floats should be for every word,
+and to perfectly tune the self-attention matrices, we need to feed the AI millions
+of wikipedia articles and run thousands of gpus 24/7 for months.
+
+to avoid this, there are several organizations that provides "pre-trained" models that natively understands the grammar, 
+embeddings, and attention mechanics of 100 of languages, 
+they then exported all those calculated floats and matrix weights into a .bin file
+
+"fine-tuning" means downloading google's completed .bin file,
+freezing 99% of architecture so it cant be altered, and only spending ~30 minutes updating the 
+very last output layer to a specific task. it is the machine learning equivalent of importing a 
+highly optimized c++ binary library instead of wiriting our own operating system from scratch
+
+https://chatgpt.com/c/6a2e6bdb-9f58-83e8-9d84-395b4a958612

@@ -1,0 +1,67 @@
+1. word embeddings (the math of meaninig)
+
+it has a major flaw, computers only have mathematical operators (+, -, *, /).
+We cannot multiply a string by an integer i. e string "king" by 5
+
+A solution to this is to map every word to a massive array of floats.
+
+imagine a 3d graph, where:
+     X-axis is "Royalty",
+     Y-axis is "Gender",
+     Z-axis is "Age"
+
+"king" might be plotted at [0.9, 0.9, 0.8]
+"Queen" might be plotted at [0.9, -0.9, 0.8]
+
+they share the same royalty and age values, but have opposite gender values.
+In modern AI, we dont use 3 dimensions instead we use 768 dimensions. 
+That array of 768 flots is a word's absolute coordinate in "meaning space".
+
+It matters becayse they are just numbers in space, we can run actual algebra on meaning.
+if we take the array for "king", subtract the array for "man" and add the array for "women",
+resulting flots will almost point exactly to the coordinaates for a "queen".
+we have successfully turned human language into pure geometery
+
+"king" =  [0.9, 0.9, 0.8]
+"man" = [0.0, 0.9, 0.8]
+result = king - man => [0.9, 0.0, 0.8]
+
+"woman" = [0.0, -0.9, 0.0]
+queen = result + woman => ~[0.9, -0.9, 0.8]
+
+
+
+
+In mathematics and computer science, an array of numbers is literally what a vector is....
+* A 2d vector is [x, y].
+* A 3d vector is [x, y, z].
+* BERT's word embeddings is just a 768-dimensional vector: [float_1, float_2, ........, float_768]/
+
+The vector space is the mathematical grid where all of these arrays live.
+because we forced human language into a strict geometric vector space, we can now use standard high 
+school geometry to measyre exactly how related two words are.
+
+We use a formula called cosine simularity to measure the angle between two vectors.
+* if two word vectos point in the samme direction, they have a similarity of 1.0 (they mean exactly same thing)
+* if they point to a 90 degree angle, the similarity is 0.0 (they are completely unrelated, like "banana" and "truck")
+* if they point in opposite direction, the similarity is -1.0 (they are antonyms, like "hot" and "cold")
+[
+    cos(0 degree) = 1
+    cos(90 degree) = 0
+    cos(180 degree) = -1
+]
+
+
+Text
+ ↓
+Tokenization
+ ↓
+Embedding vectors
+ ↓
+Transformer layers
+ ↓
+Contextual vectors
+ ↓
+Next-token prediction
+
+https://chatgpt.com/c/6a2e6bdb-9f58-83e8-9d84-395b4a958612
